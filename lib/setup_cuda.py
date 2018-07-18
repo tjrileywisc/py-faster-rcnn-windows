@@ -22,6 +22,10 @@ try:
 except AttributeError:
     numpy_include = np.get_numpy_include()
 
+# Get the CUDA include directory
+cuda_home = os.environ['CUDA_PATH']
+cuda_include = os.path.join(cuda_home, "include")
+
 
 cudamat_ext = Extension('nms.gpu_nms',
                         sources=[
@@ -30,7 +34,7 @@ cudamat_ext = Extension('nms.gpu_nms',
                         language='c++',
                         libraries=cuda_libs,
                         extra_compile_args=nvcc_compile_args,
-                        include_dirs = [numpy_include, 'C:\\Programming\\CUDA\\v7.5\\include'])
+                        include_dirs = [numpy_include, cuda_include])
 
 
 class CUDA_build_ext(build_ext):

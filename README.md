@@ -21,3 +21,7 @@ to compile the lib on windows directly. Enjoy!
 
 Note:
 Please see the LICENSE on https://github.com/rbgirshick/py-faster-rcnn for details.
+
+
+* You may need to run `python setup_cuda.py build_ext` from the VS developer console
+prompt in order for it to build properly.
